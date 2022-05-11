@@ -1,3 +1,8 @@
+#inventories {
+  border: 2px solid rgb(0, 0, 0);
+  border-radius: 20px;
+  margin: 50px;
+}
 .inventories-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -7,9 +12,15 @@
   .inventories-container {
     grid-template-columns: repeat(1, 1fr);
   }
+  #inventories {
+    margin: 10px;
+  }
 }
 @media only screen and (min-width: 577px) and (max-width: 992px) {
   .inventories-container {
     grid-template-columns: repeat(2, 1fr);
+  }
+  #inventories {
+    margin: 25px;
   }
 }

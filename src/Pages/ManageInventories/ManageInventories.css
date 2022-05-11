@@ -1,0 +1,9 @@
+.manage-inventories {
+  margin: 0 5%;
+}
+
+@media only screen and (max-width: 576px) {
+  .manage-inventories {
+    margin: 0;
+  }
+}
