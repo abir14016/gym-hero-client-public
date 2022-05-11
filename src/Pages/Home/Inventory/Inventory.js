@@ -1,13 +1,13 @@
-import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Inventory.css';
 
 const Inventory = ({ inventory }) => {
+
     const { _id, name, picture, deccription, price, quantity, supplier } = inventory;
     const navigate = useNavigate();
 
     const navigateToInventoryDetail = id => {
-        navigate(`/inventories/${id}`);
+        navigate(`/inventory/${id}`);
     }
 
     return (
@@ -22,7 +22,7 @@ const Inventory = ({ inventory }) => {
             </div>
             <div className="card-body">
                 <h3 className="card-title text-white">{name}</h3>
-                <p className="card-text card-description">{deccription}</p>
+                <p className="card-text card-description">{deccription}<button>see more</button></p>
                 <h6 className='text-warning fs-4'>$ {price}</h6>
             </div>
             <div className='text-center'>
