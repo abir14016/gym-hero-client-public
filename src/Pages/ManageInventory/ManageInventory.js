@@ -1,8 +1,25 @@
 import React from 'react';
 import './ManageInventory.css'
 
-const ManageInventory = ({ manageInventory }) => {
-    const { index, picture, name, price, supplier } = manageInventory;
+const ManageInventory = ({ manageInventory, manageInventories, setmanageInventories }) => {
+    const { index, picture, name, _id, supplier } = manageInventory;
+
+    const handleDeleteInventory = id => {
+        const proced = window.confirm("Are you sure?");
+        if (proced) {
+            const url = `http://localhost:5000/manageinventory/${id}`;
+            fetch(url, {
+                method: "DELETE"
+            })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data);
+                    const remaining = manageInventories.filter(manageInventory => manageInventory._id !== id);
+                    setmanageInventories(remaining);
+                })
+        }
+    }
+
     return (
         <tr>
             <td>{index + 1}</td>
@@ -14,7 +31,7 @@ const ManageInventory = ({ manageInventory }) => {
             <td>{name}</td>
             <td>{supplier}</td>
             <td>
-                <button className='btn btn-danger'>X</button>
+                <button onClick={() => handleDeleteInventory(_id)} className='btn btn-danger'>X</button>
             </td>
         </tr>
 

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Table } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import ManageInventory from '../ManageInventory/ManageInventory';
 import './ManageInventories.css'
 
@@ -14,7 +15,7 @@ const ManageInventories = () => {
 
     return (
         <div className='manage-inventories'>
-            <h4 className='text-center'>Manage All Inventories:</h4>
+            <h4 className='text-center'>Manage All Inventories: {manageInventories.length}</h4>
             <Table striped bordered hover variant="dark">
                 <thead>
                     <tr className='text-warning'>
@@ -30,10 +31,15 @@ const ManageInventories = () => {
                         manageInventories.map(manageInventory => <ManageInventory
                             key={manageInventory._id}
                             manageInventory={manageInventory}
+                            setmanageInventories={setmanageInventories}
+                            manageInventories={manageInventories}
                         ></ManageInventory>)
                     }
                 </tbody>
             </Table>
+            <div className='container text-center mt-5'>
+                <Link className='btn btn-dark' to="/addinventory">Add Inventory</Link>
+            </div>
         </div>
     );
 };
