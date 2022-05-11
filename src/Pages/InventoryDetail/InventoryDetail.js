@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import UseInventoryDetail from '../../Hooks/UseInventoryDetail';
 import './InventoryDetail.css'
@@ -33,6 +33,10 @@ const InventoryDetail = () => {
                         </div>
                     </div>
                 </div>
+            </div>
+            <div className='text-center'>
+                <h2>Detail Information:</h2>
+                <p>{deccription}</p>
             </div>
         </div>
     );

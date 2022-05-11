@@ -16,13 +16,13 @@ const ManageInventories = () => {
     return (
         <div className='manage-inventories'>
             <h4 className='text-center'>Manage All Inventories: {manageInventories.length}</h4>
-            <Table striped bordered hover variant="dark">
+            <Table className='text-center' striped bordered hover variant="dark">
                 <thead>
                     <tr className='text-warning'>
-                        <th>#</th>
                         <th>Picture</th>
                         <th>Inventory</th>
                         <th>Supplier</th>
+                        <th>Price($)</th>
                         <th>Manage</th>
                     </tr>
                 </thead>

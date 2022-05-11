@@ -1,4 +1,5 @@
 import { Route, Routes } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
 import AddInventory from './Pages/AddInventory/AddInventory';
 import Home from './Pages/Home/Home/Home';
 import InventoryDetail from './Pages/InventoryDetail/InventoryDetail';
@@ -20,6 +21,7 @@ function App() {
         <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
       <Footer></Footer>
+      <ToastContainer></ToastContainer>
     </div>
   );
 }
