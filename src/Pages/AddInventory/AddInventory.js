@@ -29,6 +29,7 @@ const AddInventory = () => {
             .then(res => res.json())
             .then(result => {
                 toast("Added Inventory");
+                event.target.reset();
             });
     };
 

@@ -1,17 +1,40 @@
-import React, { useState } from 'react';
-import { useParams } from 'react-router-dom';
+import axios from 'axios';
+import React from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
+import { toast } from 'react-toastify';
+// const axios = require('axios').default;
 import UseInventoryDetail from '../../Hooks/UseInventoryDetail';
 import './InventoryDetail.css'
 
 const InventoryDetail = () => {
     const { inventoryId } = useParams();
-    const [inventory] = UseInventoryDetail(inventoryId)
+    const [inventory, setInventory] = UseInventoryDetail(inventoryId)
     const { _id, name, picture, deccription, price, quantity, supplier } = inventory;
 
+    const navigate = useNavigate();
 
-    const [reduceQuantity, setReduceQuantity] = useState(quantity);
+
     const handleDelivered = () => {
-        setReduceQuantity(quantity - 1);
+        const { quantity, _id, ...rest } = inventory;
+        const updatedInventory = {
+            quantity: quantity - 1, ...rest
+        }
+        if (updatedInventory.quantity < 0) {
+            return toast.error("Stock Out");
+        }
+        else {
+            const proced = window.confirm(`Please confirm to deliver one ${name} `);
+            if (proced) {
+                (async function () {
+                    console.log(updatedInventory);
+                    const { data } = await axios.put(`http://localhost:5000/inventory/${_id}`, updatedInventory);
+                    // navigate('/');
+                    console.log(data);
+                })();
+                setInventory(updatedInventory);
+                toast.success("Successfully delivered");
+            }
+        }
     }
 
     return (
@@ -27,7 +50,7 @@ const InventoryDetail = () => {
                         <div className="card-body text-center border">
                             <h5 className="card-title">{name}</h5>
                             <p>Price: {price}</p>
-                            <p>Quantity: {reduceQuantity}</p>
+                            <p>Quantity: {quantity}</p>
                             <p>Supplier: {supplier}</p>
                             <button onClick={handleDelivered} className='btn btn-success'>Delivered</button>
                         </div>

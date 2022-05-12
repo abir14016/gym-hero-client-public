@@ -9,7 +9,7 @@ const UseInventoryDetail = inventoryId => {
             .then(data => setInventory(data))
     }, [inventoryId]);
 
-    return [inventory];
+    return [inventory, setInventory];
 }
 
 export default UseInventoryDetail;
