@@ -3,6 +3,8 @@ import { ToastContainer } from 'react-toastify';
 import AddInventory from './Pages/AddInventory/AddInventory';
 import Home from './Pages/Home/Home/Home';
 import InventoryDetail from './Pages/InventoryDetail/InventoryDetail';
+import Login from './Pages/Login/Login/Login';
+import Register from './Pages/Login/Register/Register';
 import ManageInventories from './Pages/ManageInventories/ManageInventories';
 import Footer from './Pages/Shared/Footer/Footer';
 import Header from './Pages/Shared/Header/Header';
@@ -18,6 +20,8 @@ function App() {
         <Route path='inventory/:inventoryId' element={<InventoryDetail></InventoryDetail>}></Route>
         <Route path='/manageinventories' element={<ManageInventories></ManageInventories>}></Route>
         <Route path='/addinventory' element={<AddInventory></AddInventory>}></Route>
+        <Route path='/login' element={<Login></Login>}></Route>
+        <Route path='/register' element={<Register></Register>}></Route>
         <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
       <Footer></Footer>

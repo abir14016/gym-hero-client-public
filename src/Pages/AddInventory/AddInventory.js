@@ -3,6 +3,7 @@ import { Button, Form } from 'react-bootstrap';
 import { toast } from 'react-toastify';
 import PageTitle from '../Shared/PageTitle/PageTitle';
 import './AddInventory.css';
+import addInventoryLogo from '../../images/utilities/add-inventory-logo.png'
 
 const AddInventory = () => {
 
@@ -38,7 +39,10 @@ const AddInventory = () => {
             <PageTitle title="Add Inventory"></PageTitle>
             <h2 className='text-primary text-center'>Welcome To Add Inventory Page</h2>
             <Form onSubmit={handleAddInventory} className='form-container bg-dark text-white p-4 my-4 rounded'>
-                <h4 className='text-center'>Add Inventory</h4>
+                <div className='text-center'>
+                    <img style={{ width: 80 }} src={addInventoryLogo} alt="" />
+                    <h4 className='text-center'>Add Inventory</h4>
+                </div>
                 <Form.Group className="mb-3" controlId="formBasicName">
                     <Form.Label>Inventory Name</Form.Label>
                     <Form.Control type="text" name='inventory' placeholder="Enter Inventory Name" required />
