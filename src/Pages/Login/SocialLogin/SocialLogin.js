@@ -3,8 +3,31 @@ import google from '../../../images/social/google-logo.png';
 import facebook from '../../../images/social/facebook-logo.png';
 import github from '../../../images/social/github-logo.png';
 import './SocialLogin.css';
+import { useSignInWithFacebook, useSignInWithGithub, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import auth from '../../../firebase.init';
+import { useNavigate } from 'react-router-dom';
 
 const SocialLogin = () => {
+    const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
+
+    const [signInWithGithub, githubUser, githubLoading, githubError] = useSignInWithGithub(auth);
+
+    const [signInWithFacebook, facebookUser, facebookLoading, facebookError] = useSignInWithFacebook(auth);
+
+
+    let errorElement;
+    if (googleError || githubError || facebookError) {
+        errorElement = <div><p>Error: {googleError?.message} {githubError?.message} {facebookError.message}</p></div>
+    }
+    let loadingElemrnt;
+    if (googleLoading || githubLoading || facebookLoading) {
+        loadingElemrnt = <p>Loading...</p>
+    }
+
+    const navigate = useNavigate()
+    if (googleUser || githubUser || facebookUser) {
+        navigate('/')
+    }
     return (
         <div>
             <div className='d-flex align-items-center'>
@@ -13,18 +36,21 @@ const SocialLogin = () => {
                 <div style={{ height: "1px" }} className='bg-primary w-50'></div>
             </div>
 
+            <p style={{ color: "red" }}>{errorElement}</p>
+            <p>{loadingElemrnt}</p>
+
             <div>
-                <button className='btn btn-primary d-block mx-auto social-login-button'>
+                <button onClick={() => signInWithGoogle()} className='btn btn-primary d-block mx-auto social-login-button'>
                     <img style={{ width: "32px" }} src={google} alt="" />
                     <span className='px-2'>Google sign in</span>
                 </button>
 
-                <button className='btn btn-primary d-block mx-auto my-3 social-login-button'>
+                <button onClick={() => signInWithFacebook()} className='btn btn-primary d-block mx-auto my-3 social-login-button'>
                     <img style={{ width: "32px" }} src={facebook} alt="" />
                     <span className='px-2'>Facebook sign in</span>
                 </button>
 
-                <button className='btn btn-primary d-block mx-auto social-login-button'>
+                <button onClick={() => signInWithGithub()} className='btn btn-primary d-block mx-auto social-login-button'>
                     <img style={{ width: "32px" }} src={github} alt="" />
                     <span className='px-2'>Github sign in</span>
                 </button>
