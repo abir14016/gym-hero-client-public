@@ -3,9 +3,9 @@ import google from '../../../images/social/google-logo.png';
 import facebook from '../../../images/social/facebook-logo.png';
 import github from '../../../images/social/github-logo.png';
 import './SocialLogin.css';
-import { useSignInWithFacebook, useSignInWithGithub, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { useAuthState, useSignInWithFacebook, useSignInWithGithub, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const SocialLogin = () => {
     const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
@@ -14,20 +14,26 @@ const SocialLogin = () => {
 
     const [signInWithFacebook, facebookUser, facebookLoading, facebookError] = useSignInWithFacebook(auth);
 
+    const [user] = useAuthState(auth);
+
+    const location = useLocation();
+    const navigate = useNavigate()
+    let from = location.state?.from?.pathname || "/";
+    if (googleUser || githubUser || facebookUser) {
+        navigate(from, { replace: true });
+    }
+    // console.log(user?.displayName);
+
 
     let errorElement;
     if (googleError || githubError || facebookError) {
-        errorElement = <div><p>Error: {googleError?.message} {githubError?.message} {facebookError.message}</p></div>
+        errorElement = <div><p>Error: {googleError?.message} {githubError?.message} {facebookError?.message}</p></div>
     }
     let loadingElemrnt;
     if (googleLoading || githubLoading || facebookLoading) {
         loadingElemrnt = <p>Loading...</p>
     }
 
-    const navigate = useNavigate()
-    if (googleUser || githubUser || facebookUser) {
-        navigate('/')
-    }
     return (
         <div>
             <div className='d-flex align-items-center'>

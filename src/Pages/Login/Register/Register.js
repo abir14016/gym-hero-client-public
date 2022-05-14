@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
-import { Link, useNavigate } from 'react-router-dom';
-import { toast } from 'react-toastify';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../../firebase.init';
 import PageTitle from '../../Shared/PageTitle/PageTitle';
 import SocialLogin from '../SocialLogin/SocialLogin';
@@ -10,8 +9,9 @@ import SocialLogin from '../SocialLogin/SocialLogin';
 const Register = () => {
     const [agree, setAgree] = useState(false);
     const [err, setErr] = useState('');
-    // const [password, setPassword] = useState('');
     const navigate = useNavigate();
+    const location = useLocation();
+    let from = location.state?.from?.pathname || "/";
 
     const [
         createUserWithEmailAndPassword,
@@ -34,7 +34,7 @@ const Register = () => {
     const [updateProfile, updating, profileError] = useUpdateProfile(auth);
 
     if (user) {
-        navigate('/');
+        navigate(from, { replace: true });
     }
 
 
