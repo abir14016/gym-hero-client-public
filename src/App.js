@@ -7,6 +7,7 @@ import InventoryDetail from './Pages/InventoryDetail/InventoryDetail';
 import Login from './Pages/Login/Login/Login';
 import Register from './Pages/Login/Register/Register';
 import RequireAuth from './Pages/Login/RequireAuth/RequireAuth';
+import VerifyEmail from './Pages/Login/VerifyEmail/VerifyEmail';
 import ManageInventories from './Pages/ManageInventories/ManageInventories';
 import MyInventories from './Pages/MyInventories/MyInventories';
 import Footer from './Pages/Shared/Footer/Footer';
@@ -34,6 +35,7 @@ function App() {
         <Route path='myinventories' element={<MyInventories></MyInventories>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/register' element={<Register></Register>}></Route>
+        <Route path='/verifyemail' element={<VerifyEmail></VerifyEmail>}></Route>
         <Route path='about' element={<About></About>}></Route>
         <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>

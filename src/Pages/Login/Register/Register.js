@@ -9,6 +9,8 @@ import SocialLogin from '../SocialLogin/SocialLogin';
 const Register = () => {
     const [agree, setAgree] = useState(false);
     const [err, setErr] = useState('');
+
+
     const navigate = useNavigate();
     const location = useLocation();
     let from = location.state?.from?.pathname || "/";
@@ -26,9 +28,6 @@ const Register = () => {
         errormessage = error.message.slice(9, error?.message?.length);
         errorElement = <p style={{ color: "red" }}>Error: {errormessage}</p>
     }
-    // if (!error) {
-    //     errorElement = <></>;
-    // }
 
 
     const [updateProfile, updating, profileError] = useUpdateProfile(auth);
