@@ -53,52 +53,49 @@ const Header = () => {
     );
 
     return (
-        <div sticky="top">
-            <Navbar className='header' sticky="top" collapseOnSelect expand="lg" bg="dark" variant="dark">
-                <Container>
-                    <Navbar.Brand as={Link} to="/">
-                        <img src={logo} height="50" alt="" />
-                        Gym Hero
-                    </Navbar.Brand>
-                    <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-                    <Navbar.Collapse id="responsive-navbar-nav">
-                        <Nav className="me-auto">
-                            <Nav.Link as={Link} to="/">Home</Nav.Link>
-                            <Nav.Link href="home#inventories">Inventories</Nav.Link>
-                            <Nav.Link href="home#experts">Experts</Nav.Link>
-                        </Nav>
-                        <Nav>
+        <Navbar className='header' sticky="top" collapseOnSelect expand="lg" bg="dark" variant="dark">
+            <Container>
+                <Navbar.Brand as={Link} to="/">
+                    <img src={logo} height="50" alt="" />
+                    Gym Hero
+                </Navbar.Brand>
+                <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+                <Navbar.Collapse id="responsive-navbar-nav">
+                    <Nav className="me-auto">
+                        <Nav.Link as={Link} to="/">Home</Nav.Link>
+                        <Nav.Link href="home#inventories">Inventories</Nav.Link>
+                        <Nav.Link as={Link} to="/blogs">Blogs</Nav.Link>
+                    </Nav>
+                    <Nav>
 
-                            {
-                                user && <>
-                                    <NavDropdown className='bg-dark' title="Dashboard" id="collasible-nav-dropdown">
-                                        <NavDropdown.Item as={Link} to="manageinventories">Manage Inventories</NavDropdown.Item>
-                                        <NavDropdown.Item as={Link} to="addinventory">Add Inventories</NavDropdown.Item>
-                                        <NavDropdown.Item as={Link} to="myinventories">My Inventories</NavDropdown.Item>
-                                    </NavDropdown>
-                                </>
-                            }
-
-
-                            <Nav.Link as={Link} to="/about">About</Nav.Link>
-
-                            {user ? <button onClick={handleSignOut} className='btn btn-link text-white text-decoration-none'>Sign Out</button> :
-                                <Nav.Link as={Link} to="/login">Login</Nav.Link>}
+                        {
+                            user && <>
+                                <NavDropdown className='bg-dark' title="Dashboard" id="collasible-nav-dropdown">
+                                    <NavDropdown.Item as={Link} to="manageinventories">Manage Inventories</NavDropdown.Item>
+                                    <NavDropdown.Item as={Link} to="addinventory">Add Inventories</NavDropdown.Item>
+                                    <NavDropdown.Item as={Link} to="myinventories">My Inventories</NavDropdown.Item>
+                                </NavDropdown>
+                            </>
+                        }
 
 
-                            {user && <div className='btn btn-link'>
-                                <OverlayTrigger trigger="click" placement="bottom" overlay={popover}>
-                                    {
-                                        user?.photoURL ? <img className='profile-picture' src={user.photoURL} alt="" /> : <img style={{ width: 40 }} className='profile-picture' src={userImage} alt="" />
-                                    }
-                                </OverlayTrigger>
-                            </div>}
 
-                        </Nav>
-                    </Navbar.Collapse>
-                </Container>
-            </Navbar>
-        </div>
+                        {user ? <button onClick={handleSignOut} className='btn btn-link text-white text-decoration-none'>Sign Out</button> :
+                            <Nav.Link as={Link} to="/login">Login</Nav.Link>}
+
+
+                        {user && <div className='btn btn-link'>
+                            <OverlayTrigger trigger="click" placement="bottom" overlay={popover}>
+                                {
+                                    user?.photoURL ? <img className='profile-picture' src={user.photoURL} alt="" /> : <img style={{ width: 40 }} className='profile-picture' src={userImage} alt="" />
+                                }
+                            </OverlayTrigger>
+                        </div>}
+
+                    </Nav>
+                </Navbar.Collapse>
+            </Container>
+        </Navbar>
     );
 };
 
