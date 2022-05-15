@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { Table } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import ManageInventory from '../ManageInventory/ManageInventory';
-import './ManageInventories.css'
+import './ManageInventories.css';
+import manage from '../../images/utilities/manage-inventory-logo.png';
 
 const ManageInventories = () => {
     const [manageInventories, setmanageInventories] = useState([]);

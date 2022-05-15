@@ -1,9 +1,15 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import './ManageInventory.css'
 
 const ManageInventory = ({ manageInventory, manageInventories, setmanageInventories }) => {
     const { price, picture, name, _id, supplier } = manageInventory;
+    const navigate = useNavigate();
+
+    const navigateToInventoryDetail = id => {
+        navigate(`/inventory/${id}`);
+    }
 
     const handleDeleteInventory = id => {
         const proced = window.confirm("Are you sure?");
@@ -26,7 +32,7 @@ const ManageInventory = ({ manageInventory, manageInventories, setmanageInventor
         <tr>
             <td>
                 <div className='manage-inventory'>
-                    <img className='border' style={{ width: 50 }} src={picture} alt="" />
+                    <img className='border manage-inventory-image' style={{ cursor: "pointer", width: 50 }} onClick={() => navigateToInventoryDetail(_id)} src={picture} alt="" />
                 </div>
             </td>
             <td>{name}</td>

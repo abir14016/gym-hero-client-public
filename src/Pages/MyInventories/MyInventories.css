@@ -1,0 +1,7 @@
+.profile-container {
+  background-image: linear-gradient(to right, purple, indigo);
+  margin-bottom: 50px;
+}
+.myInventories-container {
+  border-radius: 25px;
+}

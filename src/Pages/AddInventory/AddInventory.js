@@ -2,10 +2,15 @@ import React from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { toast } from 'react-toastify';
 import PageTitle from '../Shared/PageTitle/PageTitle';
+import axios from 'axios'
 import './AddInventory.css';
 import addInventoryLogo from '../../images/utilities/add-inventory-logo.png'
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../firebase.init';
+import { Link } from 'react-router-dom';
 
 const AddInventory = () => {
+    const [user] = useAuthState(auth);
 
     const handleAddInventory = event => {
         event.preventDefault();
@@ -15,10 +20,18 @@ const AddInventory = () => {
         const quantity = event.target.inventory.value;
         const price = event.target.price.value;
         const picture = event.target.imgurl.value;
-        // const email = event.target.email.value;
+        const email = event.target.email.value;
 
-        const data = { name, picture, deccription, quantity, price, supplier };
+        const data = { name, email, picture, deccription, quantity, price, supplier };
         const url = `http://localhost:5000/manageinventory`;
+
+        axios.post('http://localhost:5000/myInventories', data)
+            .then(response => {
+                const { data } = response;
+                if (data.insertedId) {
+                    //comment
+                }
+            })
 
         fetch(url, {
             method: "POST",
@@ -29,7 +42,7 @@ const AddInventory = () => {
         })
             .then(res => res.json())
             .then(result => {
-                toast("Added Inventory");
+                toast.success("Successfully Added");
                 event.target.reset();
             });
     };
@@ -75,7 +88,7 @@ const AddInventory = () => {
 
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Email address</Form.Label>
-                    <Form.Control type="email" name='email' placeholder="Enter email" required />
+                    <Form.Control type="email" name='email' defaultValue={user?.email} readOnly />
                 </Form.Group>
                 <div className='text-center'>
                     <Button variant="success" type="submit">
@@ -83,6 +96,9 @@ const AddInventory = () => {
                     </Button>
                 </div>
             </Form>
+            <div className='container'>
+                <h5 className='text-end text-secondary'>Want to see your added items?<Link className='btn btn-primary' to="/myinventories">Click Here</Link></h5>
+            </div>
         </div>
     );
 };

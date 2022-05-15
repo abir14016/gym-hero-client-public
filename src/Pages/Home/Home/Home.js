@@ -1,8 +1,8 @@
 import React from 'react';
-import Header from '../../Shared/Header/Header';
 import PageTitle from '../../Shared/PageTitle/PageTitle';
 import Banner from '../Banner/Banner';
 import Inventories from '../Inventories/Inventories';
+import Partners from '../Partners/Partners';
 
 const Home = () => {
     return (
@@ -10,6 +10,7 @@ const Home = () => {
             <PageTitle title="Home"></PageTitle>
             <Banner></Banner>
             <Inventories></Inventories>
+            <Partners></Partners>
         </div>
     );
 };
