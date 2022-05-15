@@ -19,9 +19,8 @@ const MyInventories = () => {
             setMyInventories(data);
         }
         getMyInventories();
-    }, [user]);
+    }, [user, myInventories]);
 
-    console.log(user.email);
     return (
         <div>
             <div className='profile-container p-4'>

@@ -4,7 +4,7 @@ import { toast } from 'react-toastify';
 import './ManageInventory.css'
 
 const ManageInventory = ({ manageInventory, manageInventories, setmanageInventories }) => {
-    const { price, picture, name, _id, supplier } = manageInventory;
+    const { price, picture, name, _id, supplier, quantity } = manageInventory;
     const navigate = useNavigate();
 
     const navigateToInventoryDetail = id => {
@@ -23,7 +23,7 @@ const ManageInventory = ({ manageInventory, manageInventories, setmanageInventor
                     console.log(data);
                     const remaining = manageInventories.filter(manageInventory => manageInventory._id !== id);
                     setmanageInventories(remaining);
-                    toast("Deleted");
+                    toast.error("Deleted");
                 })
         }
     }
@@ -36,7 +36,7 @@ const ManageInventory = ({ manageInventory, manageInventories, setmanageInventor
                 </div>
             </td>
             <td>{name}</td>
-            <td>{supplier}</td>
+            <td>{quantity}</td>
             <td>{price}</td>
             <td>
                 <button onClick={() => handleDeleteInventory(_id)} className='btn btn-danger'>X</button>

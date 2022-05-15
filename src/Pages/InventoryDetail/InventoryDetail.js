@@ -77,7 +77,7 @@ const InventoryDetail = () => {
                         <img src={picture} className="img-fluid rounded-start" alt="" />
                         <h6 className='text-center mt-2'>ID: {_id}</h6>
                         <form onSubmit={handleRestock} className='restock-form d-flex justify-content-around'>
-                            <input className="w-50 text-center fw-bolder" type="number" name="restock" min={1} max={Infinity} defaultValue={1} placeholder='Add Quantity' id="restock" />
+                            <input className="w-50 text-center fw-bolder" type="number" name="restock" min={1} max={Infinity} placeholder='Add Quantity' id="restock" />
                             <input type="submit" value="Restock" className='btn btn-primary'></input>
                         </form>
                     </div>

@@ -22,7 +22,7 @@ const ManageInventories = () => {
                     <tr className='text-warning'>
                         <th>Picture</th>
                         <th>Inventory</th>
-                        <th>Supplier</th>
+                        <th>Quantity</th>
                         <th>Price($)</th>
                         <th>Manage</th>
                     </tr>

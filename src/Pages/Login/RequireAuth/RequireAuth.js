@@ -18,7 +18,15 @@ const RequireAuth = ({ children }) => {
     }
 
     if (user.providerData[0]?.providerId === 'password' && !user.emailVerified) {
-        return <VerifyEmail></VerifyEmail>
+        // return <VerifyEmail></VerifyEmail>
+        return <button className='btn btn-danger'
+            onClick={async () => {
+                await sendEmailVerification();
+                toast('email sent');
+            }}
+        >
+            Send verification email
+        </button>
     }
     return children;
 };

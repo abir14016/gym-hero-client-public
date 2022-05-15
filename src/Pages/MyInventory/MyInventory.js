@@ -1,12 +1,12 @@
-import React from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { Link, useLocation, useNavigate, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import './MyInventory.css'
 
 const MyInventory = ({ myInventory }) => {
+
     const { name, picture, price, quantity, _id, myInventories, setMyInventories } = myInventory;
     const navigate = useNavigate();
-    const location = useLocation();
 
     const navigateToInventoryDetail = id => {
         navigate(`/inventory/${id}`);
@@ -31,7 +31,7 @@ const MyInventory = ({ myInventory }) => {
     }
 
     return (
-        <div className='bg-white rounded-pill my-4 py-2 d-flex justify-content-evenly align-items-center'>
+        <div className='bg-white rounded-pill my-4 py-2 d-flex justify-content-around align-items-center'>
             <div className='text-center'>
                 <img style={{ cursor: "pointer" }} onClick={() => navigateToInventoryDetail(_id)} className='myInventory-image' src={picture} alt="" />
                 <h6>{name}</h6>

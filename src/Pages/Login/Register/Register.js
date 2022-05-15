@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import auth from '../../../firebase.init';
 import PageTitle from '../../Shared/PageTitle/PageTitle';
 import SocialLogin from '../SocialLogin/SocialLogin';
@@ -9,6 +10,8 @@ import SocialLogin from '../SocialLogin/SocialLogin';
 const Register = () => {
     const [agree, setAgree] = useState(false);
     const [err, setErr] = useState('');
+    const [name, setName] = useState('');
+    const [photoURL, setPhoURL] = useState('');
 
 
     const navigate = useNavigate();
@@ -29,18 +32,31 @@ const Register = () => {
         errorElement = <p style={{ color: "red" }}>Error: {errormessage}</p>
     }
 
+    const [updateProfile, updating, updatingError] = useUpdateProfile(auth);
 
-    const [updateProfile, updating, profileError] = useUpdateProfile(auth);
 
     if (user) {
+        console.log(user);
         navigate(from, { replace: true });
     }
 
 
+    const handleNameField = (e) => {
+        // console.log(e.target.value);
+        setName(e.target.value)
+    }
 
-    const handleRegister = async (event) => {
+    const handleImageField = (e) => {
+        // console.log(e.target.value);
+        setPhoURL(e.target.value);
+    }
+
+
+
+    const handleRegister = (event) => {
+        console.log(name);
         event.preventDefault();
-        const name = event.target.name.value;
+        // const name = event.target.name.value;
         const email = event.target.email.value;
         const password = event.target.password.value;
         const confirmPassword = event.target.confirmPassword.value;
@@ -57,8 +73,14 @@ const Register = () => {
         }
 
         createUserWithEmailAndPassword(email, password);
-        await updateProfile({ displayName: name });
-        alert("registered");
+        // await updateProfile({ displayName: name, photoURL: photoURL });
+        // if (updating) {
+        //     toast("updating")
+        // }
+        // if (updatingError) {
+        //     toast("error")
+        // }
+        // alert("registered");
     }
 
     return (
@@ -69,7 +91,7 @@ const Register = () => {
                 <h4 className='text-center'>please Register</h4>
                 <Form.Group className="mb-3" controlId="formBasicName">
                     <Form.Label>Your Name</Form.Label>
-                    <Form.Control type="text" name='name' placeholder="Enter Your Name" required />
+                    <Form.Control onBlur={handleNameField} type="text" name='name' placeholder="Enter Your Name" required />
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -90,6 +112,11 @@ const Register = () => {
                     <Form.Control type="password" name='confirmPassword' placeholder="Confirm Password" required />
 
                 </Form.Group>
+                <Form.Group className="mb-3" controlId="formBasicConfirmPhotoURL">
+                    <Form.Label>Your Image</Form.Label>
+                    <Form.Control onBlur={handleImageField} type="text" name='photoURL' placeholder="upload photo" required />
+
+                </Form.Group>
                 <Form.Group className="mb-3" controlId="formBasicCheckbox">
                     <Form.Check className={agree ? 'text-success' : 'text-danger'} onClick={() => setAgree(!agree)} type="checkbox" name='terms' label="Accept terms & condition" />
                 </Form.Group>
@@ -99,7 +126,10 @@ const Register = () => {
                 }
 
                 <div className='text-center'>
-                    <Button variant="primary" type="submit" disabled={!agree}>
+                    <Button onClick={async () => {
+                        await updateProfile({ displayName: name, photoURL: photoURL });
+                        alert('Updated profile');
+                    }} variant="primary" type="submit" disabled={!agree}>
                         Register
                     </Button>
                 </div>

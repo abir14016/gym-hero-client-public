@@ -4,9 +4,9 @@ import { toast } from 'react-toastify';
 import auth from '../../../firebase.init';
 
 const VerifyEmail = () => {
-    setTimeout(function () {
-        window.location.reload(1);
-    }, 3000);
+    // setTimeout(function () {
+    //     window.location.reload(1);
+    // }, 3000);
     const [user, loading] = useAuthState(auth);
     console.log(user.emailVerified)
     const [sendEmailVerification, sending, error] = useSendEmailVerification(auth);

@@ -17,12 +17,21 @@ const AddInventory = () => {
         const name = event.target.inventory.value;
         const deccription = event.target.deccription.value;
         const supplier = event.target.supplier.value;
-        const quantity = event.target.inventory.value;
+        const quantity = event.target.quantity.value;
         const price = event.target.price.value;
         const picture = event.target.imgurl.value;
         const email = event.target.email.value;
 
-        const data = { name, email, picture, deccription, quantity, price, supplier };
+        // const data = { name, email, picture, deccription, quantity, price, supplier };
+        const data = {
+            name: name,
+            email: email,
+            picture: picture,
+            deccription: deccription,
+            quantity: quantity,
+            price: price,
+            supplier: supplier
+        }
         const url = `http://localhost:5000/manageinventory`;
 
         axios.post('http://localhost:5000/myInventories', data)
@@ -56,6 +65,16 @@ const AddInventory = () => {
                     <img style={{ width: 80 }} src={addInventoryLogo} alt="" />
                     <h4 className='text-center'>Add Inventory</h4>
                 </div>
+                <Form.Group className="mb-3" controlId="formBasicEmail">
+                    <Form.Label>Email address</Form.Label>
+                    <Form.Control type="email" name='email' defaultValue={user?.email} readOnly />
+                </Form.Group>
+
+                <Form.Group className="mb-3" controlId="formBasicUserName">
+                    <Form.Label>Your Name</Form.Label>
+                    <Form.Control type="text" name='username' defaultValue={user?.displayName} readOnly />
+                </Form.Group>
+
                 <Form.Group className="mb-3" controlId="formBasicName">
                     <Form.Label>Inventory Name</Form.Label>
                     <Form.Control type="text" name='inventory' placeholder="Enter Inventory Name" required />
@@ -73,7 +92,7 @@ const AddInventory = () => {
 
                 <Form.Group className="mb-3" controlId="formBasicQuantity">
                     <Form.Label>Quantity</Form.Label>
-                    <Form.Control type="text" name='quantity' placeholder="Quantity" required />
+                    <Form.Control type="number" min={1} max={Infinity} step={5} name='quantity' placeholder="Quantity" required />
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formBasicImgURL">
@@ -86,10 +105,6 @@ const AddInventory = () => {
                     <Form.Control type="text" name='price' placeholder="Enter Price" required />
                 </Form.Group>
 
-                <Form.Group className="mb-3" controlId="formBasicEmail">
-                    <Form.Label>Email address</Form.Label>
-                    <Form.Control type="email" name='email' defaultValue={user?.email} readOnly />
-                </Form.Group>
                 <div className='text-center'>
                     <Button variant="success" type="submit">
                         Add Inventory

@@ -13,6 +13,7 @@ import MyInventories from './Pages/MyInventories/MyInventories';
 import Footer from './Pages/Shared/Footer/Footer';
 import Header from './Pages/Shared/Header/Header';
 import NotFound from './Pages/Shared/NotFound/NotFound';
+import SupportSession from './Pages/SupportSession/SupportSession';
 
 function App() {
   return (
@@ -31,10 +32,19 @@ function App() {
             <ManageInventories></ManageInventories>
           </RequireAuth>
         }></Route>
-        <Route path='/addinventory' element={<AddInventory></AddInventory>}></Route>
+        <Route path='/addinventory' element={
+          <RequireAuth>
+            <AddInventory></AddInventory>
+          </RequireAuth>
+        }></Route>
         <Route path='myinventories' element={
           <RequireAuth>
             <MyInventories></MyInventories>
+          </RequireAuth>
+        }></Route>
+        <Route path='supportsession' element={
+          <RequireAuth>
+            <SupportSession></SupportSession>
           </RequireAuth>
         }></Route>
         <Route path='/login' element={<Login></Login>}></Route>

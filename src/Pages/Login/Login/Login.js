@@ -24,6 +24,7 @@ const Login = () => {
 
     if (user) {
         navigate(from, { replace: true });
+        toast.success("Login successfull");
     }
 
 
@@ -33,9 +34,9 @@ const Login = () => {
         const password = passwordRef.current.value;
 
         await signInWithEmailAndPassword(email, password);
-        if (user) {
-            toast.success("Login successfull");
-        }
+        // if (user) {
+        //     toast.success("Login successfull");
+        // }
     }
 
     const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
