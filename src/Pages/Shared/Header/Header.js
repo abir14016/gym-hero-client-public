@@ -54,7 +54,7 @@ const Header = () => {
 
     return (
         <Navbar className='header' sticky="top" collapseOnSelect expand="lg" bg="dark" variant="dark">
-            <Container>
+            <Container className='py-3'>
                 <Navbar.Brand as={Link} to="/">
                     <img src={logo} height="50" alt="" />
                     Gym Hero
@@ -64,7 +64,6 @@ const Header = () => {
                     <Nav className="me-auto">
                         <Nav.Link as={Link} to="/">Home</Nav.Link>
                         <Nav.Link href="home#inventories">Inventories</Nav.Link>
-                        <Nav.Link as={Link} to="/blogs">Blogs</Nav.Link>
                     </Nav>
                     <Nav>
 
@@ -79,7 +78,7 @@ const Header = () => {
                         }
 
 
-
+                        <Nav.Link as={Link} to="/blogs">Blogs</Nav.Link>
                         {user ? <button onClick={handleSignOut} className='btn btn-link text-white text-decoration-none'>Sign Out</button> :
                             <Nav.Link as={Link} to="/login">Login</Nav.Link>}
 

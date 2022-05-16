@@ -9,6 +9,7 @@ import { HelmetProvider } from 'react-helmet-async';
 import 'react-toastify/dist/ReactToastify.css';
 
 import 'react-alice-carousel/lib/alice-carousel.css';
+import "animate.css/animate.min.css";
 
 // import "slick-carousel/slick/slick.css";
 // import "slick-carousel/slick/slick-theme.css";

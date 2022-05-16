@@ -12,7 +12,7 @@ const Footer = () => {
             <footer>
                 <div className="container">
                     <div className="row">
-                        <div className="col-md-3 item">
+                        <div className="col-md-3 col-6 item">
                             <Link className='footer-link' to="/myinventories">dashboard</Link>
                             <ul>
                                 <li>Web Development</li>
@@ -20,7 +20,7 @@ const Footer = () => {
                                 <li>Hosting</li>
                             </ul>
                         </div>
-                        <div className="col-md-3 item">
+                        <div className="col-md-3 col-6 item">
                             <Link className='footer-link' to="/addinventory">Add</Link>
                             <ul>
                                 <li>Company</li>
@@ -28,7 +28,7 @@ const Footer = () => {
                                 <li>Careers</li>
                             </ul>
                         </div>
-                        <div className="col-md-3 item">
+                        <div className="col-md-3 col-6 item">
                             <Link className='footer-link' to="/manageinventories">Manage</Link>
                             <ul>
                                 <li>Company</li>
@@ -36,15 +36,16 @@ const Footer = () => {
                                 <li>Careers</li>
                             </ul>
                         </div>
-                        <div className="col-md-3 item text">
+                        <div className="col-md-3 col-6 item text">
                             <Link className='footer-link' to="/blogs">Blogs</Link>
                             <p>You can store your inventories anything you want</p>
+
                         </div>
                         <div className="icon-container d-flex justify-content-center">
-                            <a className='me-2' href="https://github.com/abir14016"><img src={github} alt="" /></a>
-                            <a className='me-2' href="https://www.facebook.com/mdabir.hassan.543"><img src={facebook} alt="" /></a>
-                            <a className='me-2' href="https://twitter.com/abir14016"><img src={twitter} alt="" /></a>
-                            <a className='me-2' href="https://www.instagram.com/abir14016/?hl=en"><img src={instagram} alt="" /></a>
+                            <a className='px-3 py-2 footer-social-logo' href="https://github.com/abir14016"><img style={{ width: 50 }} src={github} alt="" /></a>
+                            <a className='px-3 py-2 footer-social-logo' href="https://www.facebook.com/mdabir.hassan.543"><img style={{ width: 50 }} src={facebook} alt="" /></a>
+                            <a className='px-3 py-2 footer-social-logo' href="https://twitter.com/abir14016"><img style={{ width: 50 }} src={twitter} alt="" /></a>
+                            <a className='px-3 py-2 footer-social-logo' href="https://www.instagram.com/abir14016/?hl=en"><img style={{ width: 50 }} src={instagram} alt="" /></a>
                         </div>
                     </div>
                     <p className="copyright">gymHero.com@2022</p>

@@ -44,4 +44,10 @@
   .footer-dark .item.text {
     margin-bottom: 0;
   }
+  .copyright {
+    text-align: center;
+  }
+}
+.footer-social-logo:hover {
+  opacity: 0.4;
 }

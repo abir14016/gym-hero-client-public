@@ -9,7 +9,7 @@ const Inventories = () => {
 
     return (
         <div className='py-5' id='inventories'>
-            <h1 className='text-center text-primary mb-5'>Our Inventories: {inventories.length}</h1>
+            <h1 className='text-center text-primary mb-5'>Explore Now: {inventories.length}</h1>
             <div className="container inventories-container card-deck">
                 {
                     inventories.map(inventory => <Inventory

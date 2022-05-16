@@ -27,12 +27,10 @@ const SocialLogin = () => {
 
     let errorElement;
     if (googleError || githubError || facebookError) {
-        // errorElement = <div><p>Error: {googleError?.message} {githubError?.message} {facebookError?.message}</p></div>
         errorElement = <span>Error: {googleError?.message} {githubError?.message} {facebookError?.message}</span>
     }
     let loadingElemrnt;
     if (googleLoading || githubLoading || facebookLoading) {
-        // loadingElemrnt = <p>Loading...</p>
         loadingElemrnt = <span>Loading...</span>
     }
 
