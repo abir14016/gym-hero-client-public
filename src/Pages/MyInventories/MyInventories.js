@@ -32,7 +32,6 @@ const MyInventories = () => {
                     signOut(auth);
                     navigate('/login')
                 }
-                console.log(error.message);
             }
         }
         getMyInventories();
@@ -66,7 +65,7 @@ const MyInventories = () => {
                         ></MyInventory>)
                     }
                 </div> : <div>
-                    <h1 className='text-secondary text-center'>You din not added any inventory yet</h1>
+                    <h1 className='text-secondary text-center'>No Item To Show Here.</h1>
                     <div className='text-center'>
                         <Link to="/addinventory" className='btn btn-primary'>Please Add</Link>
                     </div>

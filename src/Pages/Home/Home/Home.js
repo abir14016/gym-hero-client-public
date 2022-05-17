@@ -4,6 +4,7 @@ import Banner from '../Banner/Banner';
 import Inventories from '../Inventories/Inventories';
 import Partners from '../Partners/Partners';
 import Subscribe from '../Subscribe/Subscribe';
+import Success from '../Success/Success';
 import Support from '../Support/Support';
 import './Home.css'
 
@@ -16,6 +17,7 @@ const Home = () => {
             <Support></Support>
             <Partners></Partners>
             <Subscribe></Subscribe>
+            <Success></Success>
         </div>
     );
 };

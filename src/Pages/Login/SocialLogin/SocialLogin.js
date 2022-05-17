@@ -3,10 +3,9 @@ import google from '../../../images/social/google-logo.png';
 import facebook from '../../../images/social/facebook-logo.png';
 import github from '../../../images/social/github-logo.png';
 import './SocialLogin.css';
-import { useAuthState, useSignInWithFacebook, useSignInWithGithub, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { useSignInWithFacebook, useSignInWithGithub, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
 import { useLocation, useNavigate } from 'react-router-dom';
-import axios from 'axios';
 
 const SocialLogin = () => {
     const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
@@ -15,7 +14,6 @@ const SocialLogin = () => {
 
     const [signInWithFacebook, facebookUser, facebookLoading, facebookError] = useSignInWithFacebook(auth);
 
-    const [user] = useAuthState(auth);
 
     const location = useLocation();
     const navigate = useNavigate()
@@ -37,10 +35,6 @@ const SocialLogin = () => {
 
     const handleGoogleSignIn = async () => {
         await signInWithGoogle();
-        // const email = user.email;
-        // console.log(email);
-        // const { data } = await axios.post("http://localhost:5000/login", { email });
-        // localStorage.setItem('accessToken', data.accessToken);
     }
 
 

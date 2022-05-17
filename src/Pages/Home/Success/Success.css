@@ -1,0 +1,15 @@
+.success-container {
+  border: 2px solid orangered;
+  border-radius: 20px;
+}
+.success-division {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+@media only screen and (max-width: 576px) {
+  .success-division {
+    display: block;
+  }
+}

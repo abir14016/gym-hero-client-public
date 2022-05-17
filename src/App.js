@@ -1,6 +1,5 @@
 import { Route, Routes } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
-import About from './Pages/About/About';
 import AddInventory from './Pages/AddInventory/AddInventory';
 import Blogs from './Pages/Blogs/Blogs';
 import Home from './Pages/Home/Home/Home';

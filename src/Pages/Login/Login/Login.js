@@ -1,7 +1,7 @@
 import axios from 'axios';
-import React, { useRef, useState } from 'react';
+import React, { useRef } from 'react';
 import { Button, Form } from 'react-bootstrap';
-import { useAuthState, useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import auth from '../../../firebase.init';
@@ -25,8 +25,6 @@ const Login = () => {
     ] = useSignInWithEmailAndPassword(auth);
 
     if (user) {
-        // navigate(from, { replace: true });
-        // toast.success("Login successfull");
         navigate(from, { replace: true });
     }
 
@@ -41,7 +39,7 @@ const Login = () => {
         localStorage.setItem('accessToken', data.accessToken);
     }
 
-    const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
+    const [sendPasswordResetEmail] = useSendPasswordResetEmail(auth);
 
 
 

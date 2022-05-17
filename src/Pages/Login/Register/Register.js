@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { toast } from 'react-toastify';
 import auth from '../../../firebase.init';
 import PageTitle from '../../Shared/PageTitle/PageTitle';
 import SocialLogin from '../SocialLogin/SocialLogin';
@@ -33,35 +32,29 @@ const Register = () => {
         errorElement = <p style={{ color: "red" }}>Error: {errormessage}</p>
     }
 
-    const [updateProfile, updating, updatingError] = useUpdateProfile(auth);
+    const [updateProfile] = useUpdateProfile(auth);
 
 
     if (user) {
-        console.log(user);
         navigate(from, { replace: true });
     }
 
 
     const handleNameField = (e) => {
-        // console.log(e.target.value);
         setName(e.target.value)
     }
 
     const handleImageField = (e) => {
-        // console.log(e.target.value);
         setPhoURL(e.target.value);
     }
 
 
 
     const handleRegister = (event) => {
-        console.log(name);
         event.preventDefault();
-        // const name = event.target.name.value;
         const email = event.target.email.value;
         const password = event.target.password.value;
         const confirmPassword = event.target.confirmPassword.value;
-        // const agree = event.target.terms.checked;
         if (password.length > 5) {
             errormessage = '';
         }
@@ -74,14 +67,6 @@ const Register = () => {
         }
 
         createUserWithEmailAndPassword(email, password);
-        // await updateProfile({ displayName: name, photoURL: photoURL });
-        // if (updating) {
-        //     toast("updating")
-        // }
-        // if (updatingError) {
-        //     toast("error")
-        // }
-        // alert("registered");
     }
 
     return (

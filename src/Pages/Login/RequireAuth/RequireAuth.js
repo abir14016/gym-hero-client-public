@@ -4,13 +4,12 @@ import { Navigate, useLocation } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import auth from '../../../firebase.init';
 import Loading from '../../Shared/Loading/Loading';
-import VerifyEmail from '../VerifyEmail/VerifyEmail';
 import './RequireAuth.css'
 
 const RequireAuth = ({ children }) => {
     const [user, loading] = useAuthState(auth);
     const location = useLocation();
-    const [sendEmailVerification, sending, error] = useSendEmailVerification(auth);
+    const [sendEmailVerification] = useSendEmailVerification(auth);
     if (loading) {
         return <Loading></Loading>
     }
@@ -32,7 +31,7 @@ const RequireAuth = ({ children }) => {
             >
                 Send verification email
             </button>
-            <p className='text-warning'>*After varification, plz refresh the page</p>
+            <p className='text-danger'>*After varification, plz refresh the page</p>
         </div>
     }
     return children;

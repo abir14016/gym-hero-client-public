@@ -1,5 +1,5 @@
 import { signOut } from 'firebase/auth';
-import React, { useState } from 'react';
+import React from 'react';
 import { Container, Nav, Navbar, NavDropdown, OverlayTrigger, Popover } from 'react-bootstrap';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link } from 'react-router-dom';
@@ -11,18 +11,11 @@ import dashboardImage from '../../../images/utilities/dashboard-logo.jpg';
 import './Header.css';
 
 const Header = () => {
-    // const [exists, setExists] = useState(true);
-
     const [user] = useAuthState(auth);
 
     const handleSignOut = () => {
         signOut(auth);
     }
-
-    // const handleUserButthon = () => {
-    //     setExists(!exists);
-    //     console.log(exists);
-    // }
 
     const userElement = {
         image: user?.photoURL,

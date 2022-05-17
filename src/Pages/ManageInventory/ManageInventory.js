@@ -4,7 +4,7 @@ import { toast } from 'react-toastify';
 import './ManageInventory.css'
 
 const ManageInventory = ({ manageInventory, manageInventories, setmanageInventories }) => {
-    const { price, picture, name, _id, supplier, quantity } = manageInventory;
+    const { price, picture, name, _id, quantity } = manageInventory;
     const navigate = useNavigate();
 
     const navigateToInventoryDetail = id => {

@@ -5,12 +5,9 @@ import PageTitle from '../../Shared/PageTitle/PageTitle';
 import auth from '../../../firebase.init';
 
 const VerifyEmail = () => {
-    // setTimeout(function () {
-    //     window.location.reload(1);
-    // }, 3000);
-    const [user, loading] = useAuthState(auth);
+    const [user] = useAuthState(auth);
     console.log(user.emailVerified)
-    const [sendEmailVerification, sending, error] = useSendEmailVerification(auth);
+    const [sendEmailVerification] = useSendEmailVerification(auth);
     return (
         <div>
             <PageTitle title="Verify"></PageTitle>

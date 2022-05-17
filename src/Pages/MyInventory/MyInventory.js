@@ -1,14 +1,10 @@
-import React, { useEffect, useState } from 'react';
-import { Link, useLocation, useNavigate, useParams } from 'react-router-dom';
+import React from 'react';
 import { toast } from 'react-toastify';
 import './MyInventory.css'
 
 const MyInventory = ({ myInventory }) => {
 
-    const { name, picture, price, quantity, _id, myInventories, setMyInventories } = myInventory;
-    const navigate = useNavigate();
-
-
+    const { name, picture, price, _id, myInventories, setMyInventories } = myInventory;
 
     const handleDeleteMyInventory = (id) => {
         const proced = window.confirm("Are you sure?");
@@ -19,7 +15,6 @@ const MyInventory = ({ myInventory }) => {
             })
                 .then(res => res.json())
                 .then(data => {
-                    console.log(data);
                     const remaining = myInventories?.filter(myInventory => myInventory._id !== id);
                     setMyInventories(remaining);
                     toast("Deleted");
