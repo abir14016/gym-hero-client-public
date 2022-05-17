@@ -3,23 +3,39 @@ import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link } from 'react-router-dom';
 import auth from '../../firebase.init';
+import { useNavigate } from 'react-router-dom';
+import { signOut } from 'firebase/auth';
 import MyInventory from '../MyInventory/MyInventory';
 import './MyInventories.css';
 
 const MyInventories = () => {
     const [user] = useAuthState(auth);
     const [myInventories, setMyInventories] = useState([]);
+    const navigate = useNavigate()
     useEffect(() => {
 
 
         const getMyInventories = async () => {
             const email = user.email;
             const url = `http://localhost:5000/myInventories?email=${email}`;
-            const { data } = await axios.get(url);
-            setMyInventories(data);
+            try {
+                const { data } = await axios.get(url, {
+                    headers: {
+                        authorization: `Bearer ${localStorage.getItem('accessToken')}`
+                    }
+                });
+                setMyInventories(data);
+            }
+            catch (error) {
+                if (error.response.status === 401 || error.response.status === 403) {
+                    signOut(auth);
+                    navigate('/login')
+                }
+                console.log(error.message);
+            }
         }
         getMyInventories();
-    }, [user, myInventories]);
+    }, [user, myInventories, navigate]);
 
     return (
         <div>
@@ -41,7 +57,7 @@ const MyInventories = () => {
                     <h4 className='text-white text-center'>My Inventories</h4>
                     {
                         myInventories.map(myInventory => <MyInventory
-                            key={myInventory}
+                            key={myInventory._id}
                             myInventory={myInventory}
                             myInventories={myInventories}
                             setMyInventories={setMyInventories}

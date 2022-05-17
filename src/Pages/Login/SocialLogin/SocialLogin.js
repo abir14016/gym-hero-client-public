@@ -6,6 +6,7 @@ import './SocialLogin.css';
 import { useAuthState, useSignInWithFacebook, useSignInWithGithub, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
 import { useLocation, useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 const SocialLogin = () => {
     const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
@@ -34,6 +35,15 @@ const SocialLogin = () => {
         loadingElemrnt = <span>Loading...</span>
     }
 
+    const handleGoogleSignIn = async () => {
+        await signInWithGoogle();
+        // const email = user.email;
+        // console.log(email);
+        // const { data } = await axios.post("http://localhost:5000/login", { email });
+        // localStorage.setItem('accessToken', data.accessToken);
+    }
+
+
     return (
         <div>
             <div className='d-flex align-items-center'>
@@ -46,7 +56,8 @@ const SocialLogin = () => {
             <p>{loadingElemrnt}</p>
 
             <div>
-                <button onClick={() => signInWithGoogle()} className='btn btn-primary d-block mx-auto social-login-button'>
+                {/* <button onClick={() => signInWithGoogle()} className='btn btn-primary d-block mx-auto social-login-button'> */}
+                <button onClick={handleGoogleSignIn} className='btn btn-primary d-block mx-auto social-login-button'>
                     <img style={{ width: "32px" }} src={google} alt="" />
                     <span className='px-2'>Google sign in</span>
                 </button>

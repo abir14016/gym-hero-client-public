@@ -34,3 +34,9 @@ hr {
   border: 2px solid white;
   color: white;
 }
+.see-more-less-bnt {
+  background-color: transparent;
+  border: none;
+  color: rgb(61, 193, 237);
+  font-weight: bold;
+}

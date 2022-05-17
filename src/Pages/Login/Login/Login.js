@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { useRef, useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { useAuthState, useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
@@ -5,6 +6,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import auth from '../../../firebase.init';
 import PageTitle from '../../Shared/PageTitle/PageTitle';
+import loginImage from '../../../images/utilities/login-logo.png';
 import SocialLogin from '../SocialLogin/SocialLogin';
 
 const Login = () => {
@@ -23,8 +25,9 @@ const Login = () => {
     ] = useSignInWithEmailAndPassword(auth);
 
     if (user) {
+        // navigate(from, { replace: true });
+        // toast.success("Login successfull");
         navigate(from, { replace: true });
-        toast.success("Login successfull");
     }
 
 
@@ -34,9 +37,8 @@ const Login = () => {
         const password = passwordRef.current.value;
 
         await signInWithEmailAndPassword(email, password);
-        // if (user) {
-        //     toast.success("Login successfull");
-        // }
+        const { data } = await axios.post("http://localhost:5000/login", { email });
+        localStorage.setItem('accessToken', data.accessToken);
     }
 
     const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
@@ -59,6 +61,9 @@ const Login = () => {
             <PageTitle title="Login"></PageTitle>
             <h2 className='text-primary text-center'>Welcome To Login Page</h2>
             <Form onSubmit={handleLogin} className='form-container bg-dark text-white p-4 my-4 rounded'>
+                <div className='text-center py-2'>
+                    <img style={{ width: 80 }} src={loginImage} alt="" />
+                </div>
                 <h4 className='text-center'>please login</h4>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Email address</Form.Label>

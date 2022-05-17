@@ -72,7 +72,7 @@ const AddInventory = () => {
 
                 <Form.Group className="mb-3" controlId="formBasicUserName">
                     <Form.Label>Your Name</Form.Label>
-                    <Form.Control type="text" name='username' defaultValue={user?.displayName} readOnly />
+                    <Form.Control type="text" name='username' defaultValue={user?.displayName} />
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formBasicName">
@@ -96,8 +96,11 @@ const AddInventory = () => {
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formBasicImgURL">
-                    <Form.Label>Image URL</Form.Label>
+                    <Form.Label>Photo URL</Form.Label>
                     <Form.Control type="text" name='imgurl' defaultValue="https://i.ibb.co/McHVQNG/power-builder-1.jpg" />
+                    <Form.Text className="text-muted">
+                        A default photourl is given for simplicity. You can change it, if you want.
+                    </Form.Text>
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formBasicPrice">

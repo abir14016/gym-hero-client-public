@@ -6,7 +6,7 @@ import ScrollAnimation from 'react-animate-on-scroll';
 
 const Support = () => {
     return (
-        <div className='bg-secondary py-4 support-division'>
+        <div className='bg-secondary py-4 support-division mx-auto'>
             <div className='support-container container'>
                 <div className='text-center'>
                     <img className='support-image' src={support} alt="" />

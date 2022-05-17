@@ -1,13 +1,29 @@
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Inventory.css';
 
 const Inventory = ({ inventory }) => {
+
+    const [seeMore, setSeeMore] = useState(true);
+    const [seeLess, setSeeLess] = useState(true);
 
     const { _id, name, picture, deccription, price, quantity, supplier } = inventory;
     const navigate = useNavigate();
 
     const navigateToInventoryDetail = id => {
         navigate(`/inventory/${id}`);
+    }
+
+    const handleSeeMore = () => {
+        setSeeMore(!seeMore);
+        setSeeLess(!seeLess);
+        console.log('sesmore', seeMore);
+        console.log('seeLess', seeLess);
+    }
+    const handleSeeLess = () => {
+        setSeeMore(!seeMore);
+        setSeeLess(!seeLess);
+        console.log('seeLess', seeLess);
     }
 
     return (
@@ -22,7 +38,17 @@ const Inventory = ({ inventory }) => {
             </div>
             <div className="card-body">
                 <h3 className="card-title text-white">{name}</h3>
-                <p className="card-text card-description">{deccription}<button>see more</button></p>
+                {
+                    seeMore ? <p className="card-text card-description">{deccription.slice(0, 130)}...
+                        {
+                            seeMore ? <button className='see-more-less-bnt' onClick={handleSeeMore}>see more</button> : <button className='see-more-less-bnt' onClick={handleSeeLess}>see Less</button>
+                        }
+                    </p> : <p className="card-text card-description">{deccription}
+                        {
+                            seeMore ? <button className='see-more-less-bnt' onClick={handleSeeMore}>see more</button> : <button className='see-more-less-bnt' onClick={handleSeeLess}>see Less</button>
+                        }
+                    </p>
+                }
                 <h6 className='text-warning fs-4'>$ {price}</h6>
             </div>
             <div className='text-center'>

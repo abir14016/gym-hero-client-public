@@ -3,6 +3,6 @@
 }
 @media only screen and (max-width: 576px) {
   .supportsession-container {
-    width: 75;
+    width: 75%;
   }
 }

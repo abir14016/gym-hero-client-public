@@ -16,7 +16,10 @@ const ManageInventories = () => {
 
     return (
         <div className='manage-inventories'>
-            <h4 className='text-center'>Manage All Inventories: {manageInventories.length}</h4>
+            <div className='text-center py-5'>
+                <img className='border border-danger rounded-circle' style={{ width: 200 }} src={manage} alt="" />
+            </div>
+            <h2 className='text-center py-3 text-primary'>Manage All Inventories: {manageInventories.length}</h2>
             <Table className='text-center' striped bordered hover variant="dark">
                 <thead>
                     <tr className='text-warning'>

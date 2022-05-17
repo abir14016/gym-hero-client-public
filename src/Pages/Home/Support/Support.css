@@ -23,4 +23,8 @@
   .support-image {
     width: 75%;
   }
+  .right {
+    width: 75%;
+    margin: 0 auto;
+  }
 }

@@ -8,9 +8,6 @@ const MyInventory = ({ myInventory }) => {
     const { name, picture, price, quantity, _id, myInventories, setMyInventories } = myInventory;
     const navigate = useNavigate();
 
-    const navigateToInventoryDetail = id => {
-        navigate(`/inventory/${id}`);
-    }
 
 
     const handleDeleteMyInventory = (id) => {
@@ -33,7 +30,7 @@ const MyInventory = ({ myInventory }) => {
     return (
         <div className='bg-white rounded-pill my-4 py-2 d-flex justify-content-around align-items-center'>
             <div className='text-center'>
-                <img style={{ cursor: "pointer" }} onClick={() => navigateToInventoryDetail(_id)} className='myInventory-image' src={picture} alt="" />
+                <img style={{ cursor: "pointer" }} className='myInventory-image' src={picture} alt="" />
                 <h6>{name}</h6>
             </div>
             <div>

@@ -5,6 +5,7 @@ import Inventories from '../Inventories/Inventories';
 import Partners from '../Partners/Partners';
 import Subscribe from '../Subscribe/Subscribe';
 import Support from '../Support/Support';
+import './Home.css'
 
 const Home = () => {
     return (

@@ -6,6 +6,7 @@ import { toast } from 'react-toastify';
 import auth from '../../../firebase.init';
 import PageTitle from '../../Shared/PageTitle/PageTitle';
 import SocialLogin from '../SocialLogin/SocialLogin';
+import registerImage from '../../../images/utilities/register-logo.png';
 
 const Register = () => {
     const [agree, setAgree] = useState(false);
@@ -88,6 +89,9 @@ const Register = () => {
             <PageTitle title="Register"></PageTitle>
             <h2 className='text-primary text-center'>Welcome To Rgister Page</h2>
             <Form onSubmit={handleRegister} className='form-container bg-dark text-white p-4 my-4 rounded'>
+                <div className='text-center p-2'>
+                    <img style={{ width: 80 }} src={registerImage} alt="" />
+                </div>
                 <h4 className='text-center'>please Register</h4>
                 <Form.Group className="mb-3" controlId="formBasicName">
                     <Form.Label>Your Name</Form.Label>
@@ -113,7 +117,7 @@ const Register = () => {
 
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formBasicConfirmPhotoURL">
-                    <Form.Label>Your Image</Form.Label>
+                    <Form.Label>Your photoURL</Form.Label>
                     <Form.Control onBlur={handleImageField} type="text" name='photoURL' placeholder="upload photo" required />
 
                 </Form.Group>
