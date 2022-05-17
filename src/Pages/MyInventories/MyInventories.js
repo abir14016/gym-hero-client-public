@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import { signOut } from 'firebase/auth';
 import MyInventory from '../MyInventory/MyInventory';
 import './MyInventories.css';
+import PageTitle from '../Shared/PageTitle/PageTitle';
 
 const MyInventories = () => {
     const [user] = useAuthState(auth);
@@ -39,6 +40,7 @@ const MyInventories = () => {
 
     return (
         <div>
+            <PageTitle title="My Items"></PageTitle>
             <div className='profile-container p-4'>
                 <div className='container d-flex justify-content-between align-items-center'>
                     <div className='text-secondary'>

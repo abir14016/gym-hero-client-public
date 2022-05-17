@@ -92,7 +92,7 @@ const AddInventory = () => {
 
                 <Form.Group className="mb-3" controlId="formBasicQuantity">
                     <Form.Label>Quantity</Form.Label>
-                    <Form.Control type="number" min={1} max={Infinity} step={5} name='quantity' placeholder="Quantity" required />
+                    <Form.Control type="number" min={1} max={Infinity} name='quantity' placeholder="Quantity" required />
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formBasicImgURL">

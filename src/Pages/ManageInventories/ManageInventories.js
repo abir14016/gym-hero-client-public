@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import ManageInventory from '../ManageInventory/ManageInventory';
 import './ManageInventories.css';
 import manage from '../../images/utilities/manage-inventory-logo.png';
+import PageTitle from '../Shared/PageTitle/PageTitle';
 
 const ManageInventories = () => {
     const [manageInventories, setmanageInventories] = useState([]);
@@ -16,6 +17,7 @@ const ManageInventories = () => {
 
     return (
         <div className='manage-inventories'>
+            <PageTitle title="Manage"></PageTitle>
             <div className='text-center py-5'>
                 <img className='border border-danger rounded-circle' style={{ width: 200 }} src={manage} alt="" />
             </div>

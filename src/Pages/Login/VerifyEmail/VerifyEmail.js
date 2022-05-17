@@ -1,6 +1,7 @@
 import React from 'react';
 import { useAuthState, useSendEmailVerification } from 'react-firebase-hooks/auth';
 import { toast } from 'react-toastify';
+import PageTitle from '../../Shared/PageTitle/PageTitle';
 import auth from '../../../firebase.init';
 
 const VerifyEmail = () => {
@@ -12,6 +13,7 @@ const VerifyEmail = () => {
     const [sendEmailVerification, sending, error] = useSendEmailVerification(auth);
     return (
         <div>
+            <PageTitle title="Verify"></PageTitle>
             <h3 className='text-danger'>Your email is not varified</h3>
             <h4>Plz check your email</h4>
             <p>or</p>

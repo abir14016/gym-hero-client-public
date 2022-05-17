@@ -4,11 +4,13 @@ import blog2 from '../../images/blogs/blog-2.png';
 import blog3 from '../../images/blogs/blog-3.jpg';
 import blog4 from '../../images/blogs/blog-4.png';
 import qna from '../../images/utilities/qna.png'
+import PageTitle from '../Shared/PageTitle/PageTitle';
 import './Blogs.css';
 
 const Blogs = () => {
     return (
         <div className='mt-5'>
+            <PageTitle title="Blogs"></PageTitle>
             <div className='text-center pb-3'>
                 <h2 className='text-center text-warning'>Question & Answer</h2>
                 <img className='border border-danger rounded-circle' style={{ width: 200 }} src={qna} alt="" />

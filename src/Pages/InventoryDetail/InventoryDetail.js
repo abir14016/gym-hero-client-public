@@ -2,9 +2,10 @@ import axios from 'axios';
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
-// const axios = require('axios').default;
+import updateImage from '../../images/utilities/update.png';
 import UseInventoryDetail from '../../Hooks/UseInventoryDetail';
 import './InventoryDetail.css'
+import PageTitle from '../Shared/PageTitle/PageTitle';
 
 const InventoryDetail = () => {
     const { inventoryId } = useParams();
@@ -70,7 +71,11 @@ const InventoryDetail = () => {
 
     return (
         <div>
-            <h2 className='text-center'>Detailed Information For: {name}</h2>
+            <div className='text-center py-4'>
+                <PageTitle title="Detail"></PageTitle>
+                <img style={{ width: 150 }} src={updateImage} alt="" />
+            </div>
+            <h2 className='text-center'>UPDATE INFORMATION FOR: <span className='text-primary'>{name}</span> </h2>
             <div className="card mb-3 detail-container mx-auto bg-dark text-white">
                 <div className="row g-0">
                     <div className="col-md-4 text-center">
@@ -92,9 +97,9 @@ const InventoryDetail = () => {
                     </div>
                 </div>
             </div>
-            <div className='text-center'>
+            <div className='text-center p-4 container detail-description'>
                 <h2>Description:</h2>
-                <p>{deccription}</p>
+                <p className='text-muted fw-bold'>{deccription}</p>
             </div>
         </div>
     );

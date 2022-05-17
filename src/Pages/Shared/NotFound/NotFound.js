@@ -1,11 +1,13 @@
 import React from 'react';
 import './NotFound.css';
 import notFoundImage from '../../../images/utilities/not-found-pag.png';
+import PageTitle from '../PageTitle/PageTitle';
 import { Link } from 'react-router-dom';
 
 const NotFound = () => {
     return (
         <div className='not-found'>
+            <PageTitle title="404 Error"></PageTitle>
             <div className='container d-flex align-items-center justify-content-center'>
                 <div className='notfound-img d-block ml-5'>
                     <img src={notFoundImage} alt="" />
