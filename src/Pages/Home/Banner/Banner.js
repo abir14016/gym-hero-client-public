@@ -18,8 +18,8 @@ const Banner = () => {
                         alt="First slide"
                     />
                     <Carousel.Caption>
-                        <h1 className='text-warning fw-bolder'>First slide label</h1>
-                        <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                        <h1 className='text-warning fw-bolder'>Exercise Is The Success</h1>
+                        <p>You should exercise regularly to become fit</p>
                     </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item>
@@ -30,8 +30,8 @@ const Banner = () => {
                     />
 
                     <Carousel.Caption>
-                        <h1 className='text-warning fw-bolder'>Second slide label</h1>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        <h1 className='text-warning fw-bolder'>Be Focused And Concentrated</h1>
+                        <p>You should be more focused to get success</p>
                     </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item>
@@ -42,8 +42,8 @@ const Banner = () => {
                     />
 
                     <Carousel.Caption>
-                        <h1 className='text-warning fw-bolder'>Third slide label</h1>
-                        <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                        <h1 className='text-warning fw-bolder'>Work Hard On the Gym</h1>
+                        <p>Today's Pain will make you stronger</p>
                     </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item>
@@ -54,8 +54,8 @@ const Banner = () => {
                     />
 
                     <Carousel.Caption>
-                        <h1 className='text-warning fw-bolder'>Forth slide label</h1>
-                        <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                        <h1 className='text-warning fw-bolder'>Keep Fighiting Untill Win</h1>
+                        <p>Always be calm and focused.</p>
                     </Carousel.Caption>
                 </Carousel.Item>
             </Carousel>
