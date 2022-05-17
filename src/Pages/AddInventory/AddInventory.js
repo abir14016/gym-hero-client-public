@@ -32,9 +32,9 @@ const AddInventory = () => {
             price: price,
             supplier: supplier
         }
-        const url = `http://localhost:5000/manageinventory`;
+        const url = `https://gentle-cove-36367.herokuapp.com/manageinventory`;
 
-        axios.post('http://localhost:5000/myInventories', data)
+        axios.post('https://gentle-cove-36367.herokuapp.com/myInventories', data)
             .then(response => {
                 const { data } = response;
                 if (data.insertedId) {

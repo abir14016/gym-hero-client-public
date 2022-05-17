@@ -9,7 +9,7 @@ const MyInventory = ({ myInventory }) => {
     const handleDeleteMyInventory = (id) => {
         const proced = window.confirm("Are you sure?");
         if (proced) {
-            const url = `http://localhost:5000/myInventories/${id}`;
+            const url = `https://gentle-cove-36367.herokuapp.com/myInventories/${id}`;
             fetch(url, {
                 method: "DELETE"
             })

@@ -10,7 +10,7 @@ const ManageInventories = () => {
     const [manageInventories, setmanageInventories] = useState([]);
 
     useEffect(() => {
-        fetch("http://localhost:5000/manageinventory")
+        fetch("https://gentle-cove-36367.herokuapp.com/manageinventory")
             .then(res => res.json())
             .then(data => setmanageInventories(data))
     }, []);

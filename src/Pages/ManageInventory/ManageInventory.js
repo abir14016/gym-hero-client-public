@@ -14,7 +14,7 @@ const ManageInventory = ({ manageInventory, manageInventories, setmanageInventor
     const handleDeleteInventory = id => {
         const proced = window.confirm("Are you sure?");
         if (proced) {
-            const url = `http://localhost:5000/manageinventory/${id}`;
+            const url = `https://gentle-cove-36367.herokuapp.com/manageinventory/${id}`;
             fetch(url, {
                 method: "DELETE"
             })

@@ -28,7 +28,7 @@ const InventoryDetail = () => {
             if (proced) {
                 (async function () {
                     console.log(updatedInventory);
-                    const { data } = await axios.put(`http://localhost:5000/inventory/${_id}`, updatedInventory);
+                    const { data } = await axios.put(`https://gentle-cove-36367.herokuapp.com/inventory/${_id}`, updatedInventory);
                     // navigate('/');
                     console.log(data);
                 })();
@@ -50,7 +50,7 @@ const InventoryDetail = () => {
             if (!restockNumber >= 1) {
                 return toast.error("Enter a valid number");
             }
-            const url = `http://localhost:5000/inventory/${_id}`;
+            const url = `https://gentle-cove-36367.herokuapp.com/inventory/${_id}`;
             fetch(url, {
                 method: "PUT",
                 headers: {

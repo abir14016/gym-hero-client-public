@@ -18,7 +18,7 @@ const MyInventories = () => {
 
         const getMyInventories = async () => {
             const email = user.email;
-            const url = `http://localhost:5000/myInventories?email=${email}`;
+            const url = `https://gentle-cove-36367.herokuapp.com/myInventories?email=${email}`;
             try {
                 const { data } = await axios.get(url, {
                     headers: {

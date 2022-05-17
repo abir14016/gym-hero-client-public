@@ -4,7 +4,7 @@ const UseInventories = () => {
     const [inventories, setInventories] = useState([]);
 
     useEffect(() => {
-        fetch("http://localhost:5000/inventory")
+        fetch("https://gentle-cove-36367.herokuapp.com/inventory")
             .then(res => res.json())
             .then(data => setInventories(data))
     }, []);

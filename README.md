@@ -1,10 +1,22 @@
-# Getting Started with Create React App
+# Gym Hero
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+My Website Link: [Gym Hero](https://frolicking-puppy-e1821b.netlify.app/).
+This is a website for multivendor company to store gym equipment
 
 ## Available Scripts
 
-In the project directory, you can run:
+In the project I used: 
+* React as Javascript Libray
+* HTML, CSS, Bootstrap
+* Javascript
+* Firebase Authentication
+* Node.js
+* Express.js
+* Mongodb
+
+## Purpuse of this project
+
+* To build a great application for a multivendor company to  warehouse/inventory management
 
 ### `npm start`
 
