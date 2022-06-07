@@ -3,20 +3,25 @@
 My Website Link: [Gym Hero](https://frolicking-puppy-e1821b.netlify.app/).
 This is a website for multivendor company to store gym equipment
 
-## Available Scripts
+## Technology Used
 
-In the project I used: 
-* React as Javascript Libray
-* HTML, CSS, Bootstrap
-* Javascript
-* Firebase Authentication
-* Node.js
-* Express.js
-* Mongodb
+- React as Javascript Libray
+- HTML, CSS, Bootstrap
+- Javascript
+- Firebase Authentication
+- Node.js
+- Express.js
+- Mongodb
+
+## About This Project
+
+- It’s a complete website with backend integration(node.js) for a company that stores gym equipments.
+- 4 ways of login (authentication) system.
+- There are some protected routes for unauthorized users.
 
 ## Purpuse of this project
 
-* To build a great application for a multivendor company to  warehouse/inventory management
+- To build a great application for a multivendor company to warehouse/inventory management
 
 ### `npm start`
 
